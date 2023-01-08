@@ -1,18 +1,9 @@
 import { INutritionalInfoRepository } from "../../../data/repositories/nutritional-info-repository";
+import { DbSaveNutritionalInfo } from "../../../data/usecases/db-save-nutritional-info";
 import { NutritionalInfo, NutritionalInfoWithId } from "../../../domain/entities/nutritional-info";
 import { ISaveNutritionalInfo } from "../../../domain/usecases/save-nutritional-info";
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
-
-export class DbSaveNutritionalInfo implements ISaveNutritionalInfo {
-  constructor(
-    private readonly nutritionalInfoRepository: INutritionalInfoRepository
-  ) {}
-
-  async execute(data: NutritionalInfo): Promise<NutritionalInfoWithId> {
-    return await this.nutritionalInfoRepository.save(data);
-  }
-}
 
 export class InMemoryNutritionalInfoRepository
   implements INutritionalInfoRepository
