@@ -1,9 +1,7 @@
 import { NutritionalInfo } from "../../../domain/entities/nutritional-info";
-import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
+import { IUsecase } from "../../../domain/usecases/usecase";
 
-interface IUsecase<DataType, ReturnType> {
-  execute(data: DataType): Promise<ReturnType>;
-}
+import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
 
 export type NutritionalInfoWithId = NutritionalInfo & { _id: string };
 
