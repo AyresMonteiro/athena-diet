@@ -23,5 +23,11 @@ export class NutritionalInfoRouter implements IRouter {
       "POST",
       controller.save.bind(controller)
     );
+
+    this.adapter.adapt<null, NutritionalInfoWithId[]>(
+      "/nutritional-info",
+      "GET",
+      controller.get.bind(controller)
+    );
   }
 }
