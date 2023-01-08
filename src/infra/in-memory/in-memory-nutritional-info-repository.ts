@@ -17,4 +17,8 @@ export class InMemoryNutritionalInfoRepository
 
     return this.data[this.lastId - 1];
   }
+
+  async get(): Promise<NutritionalInfoWithId[]> {
+    return this.data;
+  }
 }
