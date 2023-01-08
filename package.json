@@ -8,9 +8,15 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "test": "jest src/tests"
   },
   "devDependencies": {
-    "git-cz": "^4.9.0"
+    "@faker-js/faker": "^7.6.0",
+    "@types/jest": "^29.2.5",
+    "git-cz": "^4.9.0",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3",
+    "typescript": "^4.9.4"
   }
 }
