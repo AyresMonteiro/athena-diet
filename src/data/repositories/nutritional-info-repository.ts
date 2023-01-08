@@ -2,4 +2,5 @@ import { NutritionalInfo, NutritionalInfoWithId } from "../../domain/entities/nu
 
 export interface INutritionalInfoRepository {
   save(data: NutritionalInfo): Promise<NutritionalInfoWithId>;
+  get(): Promise<NutritionalInfoWithId[]>;
 }
