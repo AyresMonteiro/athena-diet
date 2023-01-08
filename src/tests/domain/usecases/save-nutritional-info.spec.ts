@@ -1,11 +1,8 @@
+import { INutritionalInfoRepository } from "../../../data/repositories/nutritional-info-repository";
 import { NutritionalInfo, NutritionalInfoWithId } from "../../../domain/entities/nutritional-info";
 import { ISaveNutritionalInfo } from "../../../domain/usecases/save-nutritional-info";
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
-
-interface INutritionalInfoRepository {
-  save(data: NutritionalInfo): Promise<NutritionalInfoWithId>;
-}
 
 export class DbSaveNutritionalInfo implements ISaveNutritionalInfo {
   constructor(
