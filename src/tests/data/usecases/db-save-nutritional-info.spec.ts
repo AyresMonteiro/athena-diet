@@ -6,7 +6,7 @@ import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/in-m
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
 
-describe("@domain/usecases/save-nutritional-info", () => {
+describe("@data/usecases/db-save-nutritional-info", () => {
   it("should save nutritional info", async () => {
     const saveNutritionalInfo: ISaveNutritionalInfo = new DbSaveNutritionalInfo(
       new InMemoryNutritionalInfoRepository()
