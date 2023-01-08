@@ -2,12 +2,13 @@
   "name": "athena-diet",
   "version": "1.0.0",
   "description": "Diet information keeper REST API.",
-  "main": "index.ts",
+  "main": "main/index.ts",
   "repository": "https://github.com/AyresMonteiro/athena-diet",
   "author": "Ayres Monteiro",
   "license": "MIT",
   "private": false,
   "scripts": {
+    "build": "tsc",
     "commit": "git-cz",
     "test": "jest src/tests"
   },
