@@ -1,7 +1,7 @@
 {
   "name": "athena-diet",
   "version": "1.0.0",
-  "description": "Diet information keeper microservice.",
+  "description": "Diet information keeper REST API.",
   "main": "index.ts",
   "repository": "https://github.com/AyresMonteiro/athena-diet",
   "author": "Ayres Monteiro",

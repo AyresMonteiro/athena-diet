@@ -1,3 +1,3 @@
 # athena-diet
 
-Diet information keeper microservice.
+Diet information keeper REST API.
