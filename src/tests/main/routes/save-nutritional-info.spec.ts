@@ -1,37 +1,19 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import supertest from "supertest";
 
-import { DbSaveNutritionalInfo } from "../../../data/usecases/db-save-nutritional-info";
-import { NutritionalInfoWithId } from "../../../domain/entities/nutritional-info";
 import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/in-memory-nutritional-info-repository";
+
+import { NutritionalInfoController } from "../../../main/controllers/nutritional-info-controller";
+
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
 
 const app = express();
 
-export class NutritionalInfoController {
-  async save(
-    req: Request,
-    res: Response<NutritionalInfoWithId | { message: string }>
-  ) {
-    try {
-      const data = req.body;
+const controller = new NutritionalInfoController(
+  new InMemoryNutritionalInfoRepository()
+);
 
-      const saveNutritionalInfo = new DbSaveNutritionalInfo(
-        new InMemoryNutritionalInfoRepository()
-      );
-
-      const nutritionalInfo = await saveNutritionalInfo.execute(data);
-
-      return res.status(201).json(nutritionalInfo);
-    } catch (e: unknown) {
-      return res.status(500).json({ message: "system error" });
-    }
-  }
-}
-
-const controller = new NutritionalInfoController();
-
-app.post("/nutritional-info", controller.save);
+app.post("/nutritional-info", controller.save.bind(controller));
 
 const supertester = supertest(app);
 
