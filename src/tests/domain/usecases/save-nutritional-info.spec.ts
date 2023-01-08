@@ -1,10 +1,7 @@
 import { NutritionalInfo, NutritionalInfoWithId } from "../../../domain/entities/nutritional-info";
-import { IUsecase } from "../../../domain/usecases/usecase";
+import { ISaveNutritionalInfo } from "../../../domain/usecases/save-nutritional-info";
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
-
-interface ISaveNutritionalInfo
-  extends IUsecase<NutritionalInfo, NutritionalInfoWithId> {}
 
 interface INutritionalInfoRepository {
   save(data: NutritionalInfo): Promise<NutritionalInfoWithId>;
