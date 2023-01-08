@@ -4,6 +4,7 @@ import { ExpressAdapter } from "./adapters/express-adapter";
 import { NutritionalInfoRouter } from "./routes/nutritional-info-router";
 
 const athena = express();
+athena.use(express.json());
 
 const defaultAdapter = new ExpressAdapter(athena);
 

@@ -11,6 +11,7 @@ import { NutritionalInfoRouter } from "../../../main/routes/nutritional-info-rou
 
 describe("@main/routes/save-nutritional-info", () => {
   const app = express();
+  app.use(express.json());
 
   const nutritionalInfoRouter = new NutritionalInfoRouter(
     new ExpressAdapter(app),
@@ -32,31 +33,27 @@ describe("@main/routes/save-nutritional-info", () => {
     expect(results.statusCode).toStrictEqual(201);
     expect(results.body).not.toStrictEqual(undefined);
     expect(results.body._id).not.toStrictEqual(undefined);
-    expect(results.body.calcium).not.toStrictEqual(nutritionalInfo.calcium);
-    expect(results.body.calories).not.toStrictEqual(nutritionalInfo.calories);
-    expect(results.body.caloriesUnit).not.toStrictEqual(
+    expect(results.body.calcium).toStrictEqual(nutritionalInfo.calcium);
+    expect(results.body.calories).toStrictEqual(nutritionalInfo.calories);
+    expect(results.body.caloriesUnit).toStrictEqual(
       nutritionalInfo.caloriesUnit
     );
-    expect(results.body.carbohydrates).not.toStrictEqual(
+    expect(results.body.carbohydrates).toStrictEqual(
       nutritionalInfo.carbohydrates
     );
-    expect(results.body.foodFibers).not.toStrictEqual(
-      nutritionalInfo.foodFibers
-    );
-    expect(results.body.name).not.toStrictEqual(nutritionalInfo.name);
-    expect(results.body.portion).not.toStrictEqual(nutritionalInfo.portion);
-    expect(results.body.portionUnit).not.toStrictEqual(
-      nutritionalInfo.portionUnit
-    );
-    expect(results.body.protein).not.toStrictEqual(nutritionalInfo.protein);
-    expect(results.body.saturatedFat).not.toStrictEqual(
+    expect(results.body.foodFibers).toStrictEqual(nutritionalInfo.foodFibers);
+    expect(results.body.name).toStrictEqual(nutritionalInfo.name);
+    expect(results.body.portion).toStrictEqual(nutritionalInfo.portion);
+    expect(results.body.portionUnit).toStrictEqual(nutritionalInfo.portionUnit);
+    expect(results.body.protein).toStrictEqual(nutritionalInfo.protein);
+    expect(results.body.saturatedFat).toStrictEqual(
       nutritionalInfo.saturatedFat
     );
-    expect(results.body.sodium).not.toStrictEqual(nutritionalInfo.sodium);
-    expect(results.body.totalCholesterol).not.toStrictEqual(
+    expect(results.body.sodium).toStrictEqual(nutritionalInfo.sodium);
+    expect(results.body.totalCholesterol).toStrictEqual(
       nutritionalInfo.totalCholesterol
     );
-    expect(results.body.totalFat).not.toStrictEqual(nutritionalInfo.totalFat);
-    expect(results.body.transFat).not.toStrictEqual(nutritionalInfo.transFat);
+    expect(results.body.totalFat).toStrictEqual(nutritionalInfo.totalFat);
+    expect(results.body.transFat).toStrictEqual(nutritionalInfo.transFat);
   });
 });

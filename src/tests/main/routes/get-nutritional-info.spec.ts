@@ -11,6 +11,7 @@ import { NutritionalInfoRouter } from "../../../main/routes/nutritional-info-rou
 
 describe("@main/routes/get-nutritional-info", () => {
   const app = express();
+  app.use(express.json());
 
   const nutritionalInfoRouter = new NutritionalInfoRouter(
     new ExpressAdapter(app),
