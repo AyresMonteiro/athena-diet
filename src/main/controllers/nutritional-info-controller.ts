@@ -1,8 +1,13 @@
-import { Request, Response } from "express";
+import {
+  NutritionalInfo,
+  NutritionalInfoWithId,
+} from "../../domain/entities/nutritional-info";
 
 import { DbSaveNutritionalInfo } from "../../data/usecases/db-save-nutritional-info";
 import { INutritionalInfoRepository } from "../../data/repositories/nutritional-info-repository";
-import { NutritionalInfoWithId } from "../../domain/entities/nutritional-info";
+
+import { HTTPRequest } from "../../infra/http/http-request";
+import { HTTPResponse } from "../../infra/http/http-response";
 
 export class NutritionalInfoController {
   constructor(
@@ -10,11 +15,10 @@ export class NutritionalInfoController {
   ) {}
 
   async save(
-    req: Request,
-    res: Response<NutritionalInfoWithId | { message: string }>
-  ) {
+    req: HTTPRequest<NutritionalInfo>
+  ): Promise<HTTPResponse<NutritionalInfoWithId>> {
     try {
-      const data = req.body;
+      const data = req.payload;
 
       const saveNutritionalInfo = new DbSaveNutritionalInfo(
         this.nutritionalInfoRepository
@@ -22,9 +26,9 @@ export class NutritionalInfoController {
 
       const nutritionalInfo = await saveNutritionalInfo.execute(data);
 
-      return res.status(201).json(nutritionalInfo);
+      return { status: 201, data: nutritionalInfo };
     } catch (e: unknown) {
-      return res.status(500).json({ message: "system error" });
+      return { status: 500, data: { message: "system error" } };
     }
   }
 }
