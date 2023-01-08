@@ -1,9 +1,7 @@
-import { NutritionalInfo } from "../../../domain/entities/nutritional-info";
+import { NutritionalInfo, NutritionalInfoWithId } from "../../../domain/entities/nutritional-info";
 import { IUsecase } from "../../../domain/usecases/usecase";
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
-
-export type NutritionalInfoWithId = NutritionalInfo & { _id: string };
 
 interface ISaveNutritionalInfo
   extends IUsecase<NutritionalInfo, NutritionalInfoWithId> {}

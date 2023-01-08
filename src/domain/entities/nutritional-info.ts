@@ -14,3 +14,5 @@ export type NutritionalInfo = {
   calcium?: number;
   totalCholesterol?: number;
 };
+
+export type NutritionalInfoWithId = NutritionalInfo & { _id: string };
