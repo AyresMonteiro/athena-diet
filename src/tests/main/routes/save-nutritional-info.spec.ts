@@ -3,21 +3,24 @@ import supertest from "supertest";
 
 import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/in-memory-nutritional-info-repository";
 
-import { NutritionalInfoController } from "../../../main/controllers/nutritional-info-controller";
+import { ExpressAdapter } from "../../../main/adapters/express-adapter";
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
 
-const app = express();
-
-const controller = new NutritionalInfoController(
-  new InMemoryNutritionalInfoRepository()
-);
-
-app.post("/nutritional-info", controller.save.bind(controller));
-
-const supertester = supertest(app);
+import { NutritionalInfoRouter } from "../../../main/routes/nutritional-info-router";
 
 describe("@main/routes/save-nutritional-info", () => {
+  const app = express();
+
+  const nutritionalInfoRouter = new NutritionalInfoRouter(
+    new ExpressAdapter(app),
+    new InMemoryNutritionalInfoRepository()
+  );
+
+  nutritionalInfoRouter.register();
+
+  const supertester = supertest(app);
+
   it("should save payload", async () => {
     const nutritionalInfo = nutritionalInfoMock();
 
