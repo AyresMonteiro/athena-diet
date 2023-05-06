@@ -1,8 +1,8 @@
-import { INutritionalInfoRepository } from "../../data/repositories/nutritional-info-repository";
+import { INutritionalInfoRepository } from "../../../data/repositories/nutritional-info-repository";
 import {
   NutritionalInfo,
   NutritionalInfoWithId,
-} from "../../domain/entities/nutritional-info";
+} from "../../../domain/entities/nutritional-info";
 
 export class InMemoryNutritionalInfoRepository
   implements INutritionalInfoRepository

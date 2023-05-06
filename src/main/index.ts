@@ -1,7 +1,7 @@
 import express from "express";
-import { InMemoryNutritionalInfoRepository } from "../infra/in-memory/in-memory-nutritional-info-repository";
-import { ExpressAdapter } from "./adapters/express-adapter";
-import { NutritionalInfoRouter } from "./routes/nutritional-info-router";
+import { InMemoryNutritionalInfoRepository } from "../infra/in-memory/repositories/nutritional-info";
+import { ExpressAdapter } from "./adapters/express";
+import { NutritionalInfoRouter } from "./routers/nutritional-info";
 
 const athena = express();
 athena.use(express.json());

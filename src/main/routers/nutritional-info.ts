@@ -5,7 +5,7 @@ import {
 } from "../../domain/entities/nutritional-info";
 import { IAdapter } from "../../infra/http/adapter";
 import { IRouter } from "../../infra/http/router";
-import { NutritionalInfoController } from "../controllers/nutritional-info-controller";
+import { NutritionalInfoController } from "../controllers/nutritional-info";
 
 export class NutritionalInfoRouter implements IRouter {
   constructor(

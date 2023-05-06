@@ -1,13 +1,13 @@
 import express from "express";
 import supertest from "supertest";
 
-import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/in-memory-nutritional-info-repository";
+import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/repositories/nutritional-info";
 
-import { ExpressAdapter } from "../../../main/adapters/express-adapter";
+import { ExpressAdapter } from "../../../main/adapters/express";
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
 
-import { NutritionalInfoRouter } from "../../../main/routes/nutritional-info-router";
+import { NutritionalInfoRouter } from "../../../main/routers/nutritional-info";
 
 describe("@main/routes/get-nutritional-info", () => {
   const app = express();

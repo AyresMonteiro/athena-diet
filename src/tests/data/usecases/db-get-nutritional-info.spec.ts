@@ -1,6 +1,6 @@
 import { DbGetNutritionalInfo } from "../../../data/usecases/db-get-nutritional-info";
 import { IGetNutritionalInfo } from "../../../domain/usecases/get-nutritional-info";
-import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/in-memory-nutritional-info-repository";
+import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/repositories/nutritional-info";
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
 

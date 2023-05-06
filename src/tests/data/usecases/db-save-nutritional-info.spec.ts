@@ -2,7 +2,7 @@ import { ISaveNutritionalInfo } from "../../../domain/usecases/save-nutritional-
 
 import { DbSaveNutritionalInfo } from "../../../data/usecases/db-save-nutritional-info";
 
-import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/in-memory-nutritional-info-repository";
+import { InMemoryNutritionalInfoRepository } from "../../../infra/in-memory/repositories/nutritional-info";
 
 import { nutritionalInfoMock } from "../../mock/nutritional-info.mock";
 
